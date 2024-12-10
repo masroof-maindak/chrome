@@ -23,8 +23,8 @@
   --urlbar-font: "IBM Plex Sans";
 
   /* try increasing if you encounter problems */
-  --urlbar-height-setting: 24px;
-  --tab-min-height: 30px !important;
+  --urlbar-height-setting: 20px;
+  --tab-min-height: 20px !important;
 
   /* I don't recommend you touch this unless you know what you're doing */
   --arrowpanel-menuitem-padding: 2px !important;
@@ -41,16 +41,7 @@
   --toolbar-field-focus-border-color: transparent !important;
 }
 
-:root[tabsintitlebar] #titlebar:-moz-window-inactive {
-  opacity: 1 !important;
-}
-
 /* --- GENERAL DEBLOAT ---------------------------------- */
-.urlbarView-row:is(:hover, [selected]) {
-  background: rgb(
-    from var(--tab-active-fg-fallback-color) calc(r + 40) calc(g + 40) b / 0.3
-  ) !important;
-}
 
 /* Bottom left page loading status or url preview */
 #statuspanel {
@@ -109,8 +100,13 @@ menupopup > #context-sep-navigation {
 }
 
 /* empty space before and after the url bar */
-#customizableui-special-spring1, #customizableui-special-spring2 { display: none; }
-.private-browsing-indicator-with-label { display: none; }
+#customizableui-special-spring1,
+#customizableui-special-spring2 {
+  display: none;
+}
+.private-browsing-indicator-with-label {
+  display: none;
+}
 
 /* --- STYLE NAVBAR ------------------------------------ */
 
@@ -159,10 +155,18 @@ toolbar .toolbarbutton-1 {
 }
 
 /* keep pop-up menus from overlapping with navbar */
-#widget-overflow { margin: 4px !important; }
-#customizationui-widget-panel { margin: 4px !important; }
-#unified-extensions-panel { margin-top: 4px !important; }
-#appMenu-popup { margin-top: 4px !important; }
+#widget-overflow {
+  margin: 4px !important;
+}
+#customizationui-widget-panel {
+  margin: 4px !important;
+}
+#unified-extensions-panel {
+  margin-top: 4px !important;
+}
+#appMenu-popup {
+  margin-top: 4px !important;
+}
 
 /* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
 
@@ -273,20 +277,20 @@ tab:not([selected="true"]) {
 }
 
 tab {
-	font-family: var(--tab-font, monospace);
-	font-weight: bold;
-	border: none !important;
-	padding-top: 0 !important;
+  font-family: var(--tab-font, monospace);
+  font-weight: 450;
+  border: none !important;
+  padding-top: 0 !important;
 }
 
 .tab-content {
-	padding: 0 0 0 var(--tab-inline-padding);
+  padding: 0 0 0 var(--tab-inline-padding);
 }
 
 .tab-background {
-	margin-block: 0 !important;
-	min-height: var(--tab-min-height);
-	outline-offset: 0 !important;
+  margin-block: 0 !important;
+  min-height: var(--tab-min-height);
+  outline-offset: 0 !important;
 }
 
 /* safari style tab width */
@@ -363,7 +367,7 @@ tab {
 }
 
 #tabbrowser-tabs {
-	min-height: var(--tab-min-height) !important;
+  min-height: var(--tab-min-height) !important;
 }
 
 /* remove overflow scroll buttons */
@@ -386,37 +390,33 @@ tab {
 
 #nav-bar,
 #urlbar {
-	transform: translateY(calc(0px - var(--urlbar-height-setting)));
-	opacity: 0;
+  transform: translateY(calc(0px - var(--urlbar-height-setting)));
+  opacity: 0;
 }
 
 #navigator-toolbox {
-	min-height: var(--tab-min-height) !important;
-	height: var(--tab-min-height) !important;
+  min-height: var(--tab-min-height) !important;
+  height: var(--tab-min-height) !important;
 }
 
 #navigator-toolbox:focus-within {
-	min-height: calc(var(--urlbar-height-setting) + var(--tab-min-height)) !important;
-	height: calc(var(--urlbar-height-setting) + var(--tab-min-height)) !important;
-	transform: translateY(calc(0px - var(--tab-min-height)));
+  min-height: calc(
+    var(--urlbar-height-setting) + var(--tab-min-height)
+  ) !important;
+  height: calc(var(--urlbar-height-setting) + var(--tab-min-height)) !important;
+  transform: translateY(calc(0px - var(--tab-min-height)));
 }
 
 #TabsToolbar {
-	transform: translateY(var(--tab-min-height));
+  transform: translateY(var(--tab-min-height));
 }
 
 #nav-bar:focus-within {
-	transform: translateY(var(--tab-min-height));
-	opacity: 1;
+  transform: translateY(var(--tab-min-height));
+  opacity: 1;
 }
 
 #urlbar:focus-within {
-	transform: translateY(0);
-	opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
-
-/* show on toolbox focus
-#navigator-toolbox:focus-within>.browser-toolbar {
-	transform: translateY(0);
-	opacity: 1;
-} */
